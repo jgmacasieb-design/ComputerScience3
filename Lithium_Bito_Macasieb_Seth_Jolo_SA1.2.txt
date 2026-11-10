@@ -1,0 +1,138 @@
+# COMPUTER SCIENCE 3
+# HANDS-ON ASSESSMENT: RPG BATTLE ARENA
+
+#Place your name/s here: John Lorenz G. Macasieb, Seth M. Bito
+#Place your section here: 9-Lithium
+#Place your date here: 11/10/2026
+
+# ===== KNIGHT CLASS =====
+class Knight:
+    def __init__(self, name, damage):
+        self.__name = name
+        self.__damage = damage
+
+    def get_name(self):
+        return self.__name
+
+    def get_damage(self):
+        return self.__damage
+
+    def set_damage(self, new_damage):
+        if new_damage > 0:
+          self.__damage = new_damage
+
+    def attack(self):
+        print(f"{self.get_name()} swings his sword!")
+        return self.__damage
+
+
+# ===== WIZARD CLASS =====
+class Wizard:
+    def __init__(self, name, damage):
+        self.__name = name
+        self.__damage = damage
+
+    def get_name(self):
+        return self.__name
+
+    def get_damage(self):
+        return self.__damage
+
+    def set_damage(self, new_damage):
+        if new_damage > 0:
+          self.__damage = new_damage
+
+    def attack(self):
+        print(f"{self.get_name()} casts a fireball!")
+        return self.__damage
+
+
+# ===== ASSASSIN CLASS =====
+class Assassin:
+    def __init__(self, name, damage):
+        self.__name = name
+        self.__damage = damage
+
+    def get_name(self):
+        return self.__name
+
+    def get_damage(self):
+        return self.__damage
+
+    def set_damage(self, new_damage):
+        if new_damage > 0:
+          self.__damage = new_damage
+
+    def attack(self):
+        print(f"{self.get_name()} performs a strike!")
+        return self.__damage
+
+
+# ===== POLYMORPHIC FUNCTION =====
+def perform_attack(character):
+    damage = character.attack()
+    # TODO 13: Call attack() and store
+    # its returned value in damage
+
+    # TODO 14: Display "Damage dealt: "
+    # followed by the damage value
+    print(f"Damage dealt: {damage}")
+
+    # TODO 15: Return the damage
+    return damage
+
+
+# ===== CREATE OBJECTS =====
+# TODO 16: Create the following objects:
+knight = Knight("Arthur", 25)
+wizard = Wizard("Merlin", 40)
+assassin = Assassin("Shadow", 35)
+
+
+# ===== GETTER AND SETTER TEST =====
+print("===== CHARACTER UPDATE =====")
+
+# TODO 17: Increase wizard damage to 50
+# using the setter method
+wizard.set_damage(50)
+
+# TODO 18: Try setting knight damage to -10
+# using the setter method
+knight.set_damage(-10)
+
+# TODO 19: Display wizard and knight damage
+# using their getter methods
+print(f"Wizard Damage: {wizard.get_damage()}")
+print(f"Knight Damage: {knight.get_damage()}")
+
+# ===== CHARACTER LIST =====
+# TODO 20: Store the three objects
+# in a list named characters
+characters = [knight, wizard, assassin]
+
+# ===== BATTLE SYSTEM =====
+print("\n===== RPG BATTLE ARENA =====")
+
+total_damage = 0
+for character in characters:
+  total_damage += perform_attack(character)
+  
+# TODO 21: Use a for loop to call
+# perform_attack() for every character
+# and add the returned damage to total_damage
+
+
+# ===== BATTLE RESULTS =====
+print("--------------------------")
+print("Total Damage:", total_damage)
+print("Enemy Health: 100")
+
+# TODO 22: Use if-else to display:
+# Victory! The enemy has been defeated!
+# OR
+# Defeat! The enemy is still standing!
+
+if total_damage > 100:
+  print("Victory! The enemy has been defeated!")
+else:
+  print("Defeat! The enemy is still standing!")
